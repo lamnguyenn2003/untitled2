@@ -28,14 +28,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
           iconTheme: const IconThemeData(color: Color(0xFF4F46E5)),
           title: const Text(
             "Transyncs",
-            style: TextStyle(color: Color(0xFF4F46E5), fontWeight: FontWeight.bold),
+            style: TextStyle(
+              color: Color(0xFF4F46E5),
+              fontWeight: FontWeight.bold,
+            ),
           ),
           actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.notifications_none, color: Colors.grey)),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.notifications_none, color: Colors.grey),
+            ),
             const CircleAvatar(
               radius: 15,
               backgroundColor: Color(0xFF63B5E3),
-              child: Text("Ln", style: TextStyle(color: Colors.white, fontSize: 12)),
+              child: Text(
+                "Ln",
+                style: TextStyle(color: Colors.white, fontSize: 12),
+              ),
             ),
             const SizedBox(width: 16),
           ],
@@ -46,10 +55,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
             labelColor: Color(0xFF4F46E5),
             unselectedLabelColor: Colors.grey,
             tabs: [
-              Tab(text: "Sessions", icon: Icon(Icons.home_outlined),),
-              Tab(text: "Schedule", icon: Icon(Icons.calendar_today_outlined),),
-              Tab(text: "Participants", icon: Icon(Icons.people_outline),),
-              Tab(text: "Settings", icon: Icon(Icons.settings_outlined),),
+              Tab(text: "Sessions", icon: Icon(Icons.home_outlined)),
+              Tab(text: "Schedule", icon: Icon(Icons.calendar_today_outlined)),
+              Tab(text: "Participants", icon: Icon(Icons.people_outline)),
+              Tab(text: "Settings", icon: Icon(Icons.settings_outlined)),
             ],
           ),
         ),
@@ -60,15 +69,25 @@ class _DashboardScreenState extends State<DashboardScreen> {
             children: [
               const SizedBox(height: 60),
               ListTile(
-                title: const Text("Transyncs",
-                    style: TextStyle(color: Color(0xFF4F46E5), fontSize: 24, fontWeight: FontWeight.bold)),
+                title: const Text(
+                  "Transyncs",
+                  style: TextStyle(
+                    color: Color(0xFF4F46E5),
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 subtitle: const Text("Translation Platform"),
               ),
               const Divider(),
               const SizedBox(height: 20),
 
               _buildDrawerItem(Icons.home_outlined, "Sessions", true),
-              _buildDrawerItem(Icons.calendar_today_outlined, "Schedule", false),
+              _buildDrawerItem(
+                Icons.calendar_today_outlined,
+                "Schedule",
+                false,
+              ),
               _buildDrawerItem(Icons.people_outline, "Participants", false),
               _buildDrawerItem(Icons.settings_outlined, "Settings", false),
 
@@ -99,8 +118,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("Learning Sessions", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-          const Text("Welcome back, Instructor", style: TextStyle(color: Colors.grey)),
+          const Text(
+            "Learning Sessions",
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          const Text(
+            "Welcome back, Instructor",
+            style: TextStyle(color: Colors.grey),
+          ),
           const SizedBox(height: 20),
 
           SizedBox(
@@ -108,16 +133,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
             child: ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const CreateSessionScreen()),
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CreateSessionScreen(),
+                  ),
                 );
               },
               icon: const Icon(Icons.add, color: Colors.white),
-              label: const Text("New Session", style: TextStyle(color: Colors.white)),
+              label: const Text(
+                "New Session",
+                style: TextStyle(color: Colors.white),
+              ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF4F46E5),
                 padding: const EdgeInsets.symmetric(vertical: 12),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
               ),
             ),
           ),
@@ -125,11 +157,29 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
           Row(
             children: [
-              _buildStatCard("Live Sessions", "2", const Color(0xFFECFDF5), const Color(0xFF10B981), Icons.videocam),
+              _buildStatCard(
+                "Live Sessions",
+                "2",
+                const Color(0xFFECFDF5),
+                const Color(0xFF10B981),
+                Icons.videocam,
+              ),
               const SizedBox(width: 12),
-              _buildStatCard("Scheduled", "4", const Color(0xFFEFF6FF), const Color(0xFF3B82F6), Icons.calendar_today),
+              _buildStatCard(
+                "Scheduled",
+                "4",
+                const Color(0xFFEFF6FF),
+                const Color(0xFF3B82F6),
+                Icons.calendar_today,
+              ),
               const SizedBox(width: 12),
-              _buildStatCard("Completed", "2", const Color(0xFFFAF5FF), const Color(0xFF8B5CF6), Icons.trending_up),
+              _buildStatCard(
+                "Completed",
+                "2",
+                const Color(0xFFFAF5FF),
+                const Color(0xFF8B5CF6),
+                Icons.trending_up,
+              ),
             ],
           ),
           const SizedBox(height: 24),
@@ -152,11 +202,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ),
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: 'Search sessions or instructor...', // Dòng chữ gợi ý bạn muốn
+                  hintText: 'Search sessions or instructor...',
+                  // Dòng chữ gợi ý bạn muốn
                   hintStyle: const TextStyle(color: Colors.grey, fontSize: 14),
-                  prefixIcon: const Icon(Icons.search, color: Colors.grey), // Biểu tượng kính lúp
+                  prefixIcon: const Icon(Icons.search, color: Colors.grey),
+                  // Biểu tượng kính lúp
                   suffixIcon: IconButton(
-                    icon: const Icon(Icons.tune, color: Colors.grey, size: 20), // Icon lọc (Status/Language)
+                    icon: const Icon(Icons.tune, color: Colors.grey, size: 20),
+                    // Icon lọc (Status/Language)
                     onPressed: () {},
                   ),
                   border: InputBorder.none,
@@ -197,17 +250,26 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  Widget _buildScheduleContent(){
+  Widget _buildScheduleContent() {
     return SingleChildScrollView(
       padding: const EdgeInsets.all(32.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Scheduled Sessions', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600)),
-          const Text('Manage your upcoming learning sessions', style: TextStyle(color: Colors.grey)),
+          const Text(
+            'Scheduled Sessions',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+          ),
+          const Text(
+            'Manage your upcoming learning sessions',
+            style: TextStyle(color: Colors.grey),
+          ),
           const SizedBox(height: 32),
 
-          _buildSectionHeader(Icons.calendar_today_outlined, "Today's Sessions"),
+          _buildSectionHeader(
+            Icons.calendar_today_outlined,
+            "Today's Sessions",
+          ),
           const SizedBox(height: 16),
           _buildSessionsCard(
             title: "French Conversation Advanced",
@@ -215,11 +277,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
             tutor: "Pierre Dubois",
             participants: "12 participants",
             languages: "French → English",
-            istoday: true,
+            isToday: true,
           ),
           const SizedBox(height: 32),
 
-          _buildSectionHeader(Icons.calendar_today_outlined, "Upcoming Sessions"),
+          _buildSectionHeader(
+            Icons.calendar_today_outlined,
+            "Upcoming Sessions",
+          ),
           const SizedBox(height: 16),
           _buildSessionsCard(
             title: "German Business Language",
@@ -229,7 +294,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             languages: "German → English",
           ),
         ],
-      )
+      ),
     );
   }
 
@@ -243,68 +308,87 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  Widget _buildSessionsCard({required String title,String? date, required String time, required String tutor, required String participants, required String languages, bool istoday = false}){
+  Widget _buildSessionsCard({
+    required String title,
+    String? date,
+    required String time,
+    required String tutor,
+    required String participants,
+    required String languages,
+    bool isToday = false,
+  }) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
-        border: istoday
+        border: isToday
             ? const Border(left: BorderSide(color: Color(0xFF4F46E5), width: 5))
             : Border.all(color: Colors.grey.shade200),
-        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 10)],
+        boxShadow: [
+          BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 10),
+        ],
       ),
-      padding: const EdgeInsets.all(65),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(title, style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
-              if (istoday)
-                const Badge(label: Text("Today"), backgroundColor: Color(0xFF4F46E5)),
-              if (istoday)
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF4F46E5),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                  ),
-                  child: const Text("Join Session", style: TextStyle(color: Colors.white)),
-                )
-              else
-                Row(
-                  children: [
-                    OutlinedButton(onPressed: () {}, child: const Text("Details")),
-                    const SizedBox(width: 8),
-                    OutlinedButton(
-                      onPressed: () {},
-                      style: OutlinedButton.styleFrom(foregroundColor: Colors.red),
-                      child: const Text("Cancel"),
-                    ),
-                  ],
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              if (isToday)
+                const Badge(
+                  label: Text("Today"),
+                  backgroundColor: Color(0xFF4F46E5),
                 ),
             ],
           ),
           const SizedBox(height: 20),
-          Row(
-            children: [
-              _infoTile(Icons.access_time, date != null ? "$date • $time" : time),
-              const SizedBox(height: 20),
-              _infoTile(Icons.people_outline, participants),
-            ],
-          ),
-          const SizedBox(height: 12),
-          Row(
-            children: [
-              _infoTile(Icons.videocam_outlined, tutor),
-              const SizedBox(width: 10),
-              _infoTile(Icons.translate, languages),
-            ],
-          ),
+          _infoTile(Icons.access_time, date != null ? "$date • $time" : time),
+          const SizedBox(height: 10),
+          _infoTile(Icons.people_outline, participants),
+          const SizedBox(height: 10),
+          _infoTile(Icons.videocam_outlined, tutor),
+          const SizedBox(width: 10),
+          _infoTile(Icons.translate, languages),
+          const SizedBox(width: 10),
+          if (isToday)
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF4F46E5),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              child: const Text(
+                "Join Session",
+                style: TextStyle(color: Colors.white),
+              ),
+            )
+          else
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                OutlinedButton(onPressed: () {}, child: const Text("Details")),
+                const SizedBox(width: 8),
+                OutlinedButton(
+                  onPressed: () {},
+                  style: OutlinedButton.styleFrom(foregroundColor: Colors.red),
+                  child: const Text("Cancel"),
+                ),
+              ],
+            ),
         ],
       ),
     );
   }
+
   Widget _infoTile(IconData icon, String label) {
     return SizedBox(
       height: 20,
@@ -312,25 +396,33 @@ class _DashboardScreenState extends State<DashboardScreen> {
         children: [
           Icon(icon, size: 16, color: Colors.grey),
           const SizedBox(width: 8),
-          Text(label, style: const TextStyle(color: Colors.black54, fontSize: 14)),
-        ],
-      ),
-    );
-  }
-  
-  Widget _buildParticipantsContent(){
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(24.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text("Participants", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-          const Text("Manage and view your students", style: TextStyle(color: Colors.grey)),
+          Text(
+            label,
+            style: const TextStyle(color: Colors.black54, fontSize: 14),
+          ),
         ],
       ),
     );
   }
 
+  Widget _buildParticipantsContent() {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(24.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            "Participants",
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          const Text(
+            "Manage and view your students",
+            style: TextStyle(color: Colors.grey),
+          ),
+        ],
+      ),
+    );
+  }
 
   Widget _buildSettingsContent() {
     return SingleChildScrollView(
@@ -338,8 +430,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("Settings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-          const Text("Manage your account preferences and settings", style: TextStyle(color: Colors.grey)),
+          const Text(
+            "Settings",
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          const Text(
+            "Manage your account preferences and settings",
+            style: TextStyle(color: Colors.grey),
+          ),
           const SizedBox(height: 32),
 
           // --- Section: Profile Settings ---
@@ -363,10 +461,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF4F46E5),
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 12,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
-                child: const Text("Save Changes", style: TextStyle(color: Colors.white)),
+                child: const Text(
+                  "Save Changes",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ],
           ),
@@ -394,14 +500,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 "Email Notifications",
                 "Receive notifications via email",
                 _emailNotifications,
-                    (val) => setState(() => _emailNotifications = val), // Cập nhật trạng thái
+                (val) => setState(
+                  () => _emailNotifications = val,
+                ), // Cập nhật trạng thái
               ),
               const Divider(height: 32),
               _buildSwitchRow(
                 "Session Reminders",
                 "Get alerted before your sessions start",
                 _sessionReminders,
-                    (val) => setState(() => _sessionReminders = val), // Cập nhật trạng thái
+                (val) => setState(
+                  () => _sessionReminders = val,
+                ), // Cập nhật trạng thái
               ),
             ],
           ),
@@ -411,7 +521,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   // Khung trắng bo góc cho mỗi phần Settings
-  Widget _buildSettingsCard({required IconData icon, required String title, required List<Widget> children}) {
+  Widget _buildSettingsCard({
+    required IconData icon,
+    required String title,
+    required List<Widget> children,
+  }) {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
@@ -426,7 +540,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
             children: [
               Icon(icon, color: const Color(0xFF4F46E5), size: 20),
               const SizedBox(width: 8),
-              Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 24),
@@ -439,7 +559,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget _buildFieldLabel(String label) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
-      child: Text(label, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 14)),
+      child: Text(
+        label,
+        style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
+      ),
     );
   }
 
@@ -449,9 +572,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
       decoration: InputDecoration(
         filled: true,
         fillColor: const Color(0xFFF9FAFB),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: BorderSide(color: Colors.grey.shade200)),
-        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: BorderSide(color: Colors.grey.shade200)),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 12,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(color: Colors.grey.shade200),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(color: Colors.grey.shade200),
+        ),
       ),
     );
   }
@@ -476,7 +608,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   // Thêm tham số Function(bool) vào cuối hàm
-  Widget _buildSwitchRow(String title, String subtitle, bool value, Function(bool) onChanged) {
+  Widget _buildSwitchRow(
+    String title,
+    String subtitle,
+    bool value,
+    Function(bool) onChanged,
+  ) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -484,7 +621,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(title, style: const TextStyle(fontWeight: FontWeight.w500)),
-            Text(subtitle, style: const TextStyle(color: Colors.grey, fontSize: 12)),
+            Text(
+              subtitle,
+              style: const TextStyle(color: Colors.grey, fontSize: 12),
+            ),
           ],
         ),
         Switch(
@@ -505,7 +645,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
         borderRadius: BorderRadius.circular(8),
       ),
       child: ListTile(
-        leading: Icon(icon, color: isSelected ? const Color(0xFF4F46E5) : Colors.blueGrey),
+        leading: Icon(
+          icon,
+          color: isSelected ? const Color(0xFF4F46E5) : Colors.blueGrey,
+        ),
         title: Text(
           title,
           style: TextStyle(
@@ -517,7 +660,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
     );
   }
-  Widget _buildStatCard(String title, String count, Color bgColor, Color iconColor, IconData icon) {
+
+  Widget _buildStatCard(
+    String title,
+    String count,
+    Color bgColor,
+    Color iconColor,
+    IconData icon,
+  ) {
     return Expanded(
       child: Container(
         padding: const EdgeInsets.all(12),
@@ -531,20 +681,28 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(count, style: TextStyle(fontSize: 18,
+                Text(
+                  count,
+                  style: TextStyle(
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: iconColor)),
+                    color: iconColor,
+                  ),
+                ),
                 Icon(icon, size: 16, color: iconColor),
               ],
             ),
             const SizedBox(height: 4),
-            Text(title, style: TextStyle(
-                fontSize: 11, color: iconColor.withOpacity(0.8))),
+            Text(
+              title,
+              style: TextStyle(fontSize: 11, color: iconColor.withOpacity(0.8)),
+            ),
           ],
         ),
       ),
     );
   }
+
   Widget _buildTabItem(String label, String count, bool isActive) {
     return Container(
       margin: const EdgeInsets.only(right: 8),
@@ -556,14 +714,35 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
       child: Row(
         children: [
-          Text(label, style: TextStyle(color: isActive ? Colors.black : Colors.grey, fontWeight: FontWeight.w500)),
+          Text(
+            label,
+            style: TextStyle(
+              color: isActive ? Colors.black : Colors.grey,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
           const SizedBox(width: 6),
-          Text(count, style: TextStyle(color: isActive ? Colors.black45 : Colors.grey.shade400, fontSize: 12)),
+          Text(
+            count,
+            style: TextStyle(
+              color: isActive ? Colors.black45 : Colors.grey.shade400,
+              fontSize: 12,
+            ),
+          ),
         ],
       ),
     );
   }
-  Widget _buildSessionCard({required String title, required String instructor, required String lang1, required String lang2, required String participants, required String duration, bool isLive = false}) {
+
+  Widget _buildSessionCard({
+    required String title,
+    required String instructor,
+    required String lang1,
+    required String lang2,
+    required String participants,
+    required String duration,
+    bool isLive = false,
+  }) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -577,7 +756,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: const BoxDecoration(
                 color: Color(0xFF22C55E),
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(16), topRight: Radius.circular(16)),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(16),
+                  topRight: Radius.circular(16),
+                ),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -586,14 +768,28 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     children: [
                       Icon(Icons.circle, color: Colors.white, size: 8),
                       SizedBox(width: 8),
-                      Text("LIVE NOW", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12)),
+                      Text(
+                        "LIVE NOW",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12,
+                        ),
+                      ),
                     ],
                   ),
                   TextButton(
                     onPressed: () {},
-                    style: TextButton.styleFrom(backgroundColor: Colors.white, minimumSize: const Size(60, 24), padding: EdgeInsets.zero),
-                    child: const Text("Join Now", style: TextStyle(color: Color(0xFF22C55E), fontSize: 12)),
-                  )
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      minimumSize: const Size(60, 24),
+                      padding: EdgeInsets.zero,
+                    ),
+                    child: const Text(
+                      "Join Now",
+                      style: TextStyle(color: Color(0xFF22C55E), fontSize: 12),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -602,43 +798,85 @@ class _DashboardScreenState extends State<DashboardScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
                 const SizedBox(height: 4),
                 Row(
                   children: [
-                    const Icon(Icons.videocam_outlined, size: 14, color: Colors.grey),
+                    const Icon(
+                      Icons.videocam_outlined,
+                      size: 14,
+                      color: Colors.grey,
+                    ),
                     const SizedBox(width: 4),
-                    Text(instructor, style: const TextStyle(color: Colors.grey, fontSize: 13)),
+                    Text(
+                      instructor,
+                      style: const TextStyle(color: Colors.grey, fontSize: 13),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 16),
                 Container(
-                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-                  decoration: BoxDecoration(color: const Color(0xFFF5F3FF), borderRadius: BorderRadius.circular(8)),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 8,
+                    horizontal: 12,
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF5F3FF),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(lang1, style: const TextStyle(color: Color(0xFF4F46E5), fontWeight: FontWeight.bold)),
+                      Text(
+                        lang1,
+                        style: const TextStyle(
+                          color: Color(0xFF4F46E5),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 8),
-                        child: Icon(Icons.translate, size: 14, color: Color(0xFF4F46E5)),
+                        child: Icon(
+                          Icons.translate,
+                          size: 14,
+                          color: Color(0xFF4F46E5),
+                        ),
                       ),
-                      Text(lang2, style: const TextStyle(color: Color(0xFF4F46E5), fontWeight: FontWeight.bold)),
+                      Text(
+                        lang2,
+                        style: const TextStyle(
+                          color: Color(0xFF4F46E5),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ],
                   ),
                 ),
                 const SizedBox(height: 16),
                 Row(
                   children: [
-                    const Icon(Icons.people_outline, size: 18, color: Colors.grey),
+                    const Icon(
+                      Icons.people_outline,
+                      size: 18,
+                      color: Colors.grey,
+                    ),
                     const SizedBox(width: 4),
-                    Text(participants, style: const TextStyle(color: Colors.grey)),
+                    Text(
+                      participants,
+                      style: const TextStyle(color: Colors.grey),
+                    ),
                     const SizedBox(width: 24),
                     const Icon(Icons.access_time, size: 18, color: Colors.grey),
                     const SizedBox(width: 4),
                     Text(duration, style: const TextStyle(color: Colors.grey)),
                   ],
-                )
+                ),
               ],
             ),
           ),
